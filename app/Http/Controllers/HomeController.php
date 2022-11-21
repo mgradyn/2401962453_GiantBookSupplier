@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Book;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        // $categories = Category::with(['products' => function($query) {
-        //     $query->filter(request('search'));
-        // }])->get();
-
-        return view('home.index');
+        $books = Book::all();
+        return view('home.index', ['books' => $books]);
     }
 
     public function category()
@@ -24,13 +23,14 @@ class HomeController extends Controller
         return view('home.index');
     }
 
-    public function viewBook()
+    public function viewBook($id)
     {
-        // $categories = Category::with(['products' => function($query) {
-        //     $query->filter(request('search'));
-        // }])->get();
+        $book = Book::find($id);
+        if ($book){
+            return view('home.viewBook', ['book' => $book]);
+        }
 
-        return view('home.index');
+        return redirect(route('home'));
     }
 
     public function contact()

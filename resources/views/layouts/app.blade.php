@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" style="position: relative; min-height:100vh;">
         <nav class="navbar navbar-expand-lg bg-light rounded">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -68,9 +68,9 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <footer>
-            <div class="text-center p-4 bg-primary text-light fixed-bottom">
-                © Happy Book Store 2022:
+        <footer class="footer" style="position: absolute; bottom: 0; width: 100%;">
+            <div class="text-center p-4 bg-primary text-light ">
+                © Happy Book Store 2022
             </div>
         </footer>
 
