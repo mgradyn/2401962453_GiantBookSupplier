@@ -21,7 +21,7 @@ Route::get('category/{category_name}', [HomeController::class, 'category'])->nam
 Route::get('book/{id}', [HomeController::class, 'viewBook'])->name('view-book');
 
 Route::prefix('publisher/')->group(function(){
-    Route::get('/{detail_name}', [PublisherController::class, 'detail'])->name('publisher_detail');
+    Route::get('/{id}', [PublisherController::class, 'detail'])->name('publisher_detail');
 
     Route::get('/', [PublisherController::class, 'index'])->name('publisher');
 });

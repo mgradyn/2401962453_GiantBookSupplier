@@ -14,13 +14,20 @@ class HomeController extends Controller
         return view('home.index', ['books' => $books]);
     }
 
-    public function category()
+    public function category($name)
     {
-        // $categories = Category::with(['products' => function($query) {
-        //     $query->filter(request('search'));
-        // }])->get();
+        $category = Category::where('name', $name)->first();
+        if ($category)
+        {
+            $category_books = $category->bookCategories()->get();
 
-        return view('home.index');
+            if (count($category_books))
+            {
+                return view('home.category', ['category_name' => $name,
+                'category_books' => $category_books]);
+            }
+        }
+        return redirect(route('home'));
     }
 
     public function viewBook($id)

@@ -22,6 +22,6 @@ class Publisher extends Model
     public function books()
     {
         return $this->hasMany(Book::class,
-        'book_id', 'id');
+        'publisher_id', 'id');
     }
 }
