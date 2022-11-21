@@ -10,6 +10,9 @@
                 <div class="store-address mt-2">
                     <h1 class="mt-2">Store address</h1>
                     <p class="lead">{{ $store_address }}</p>
+                    <p class="lead">{{ $store_komplek }}</p>
+                    <p class="lead">{{ $store_town }}</p>
+                    <p class="lead">{{ $store_country }}</p>
                 </div>
                 <div class="schedule mt-2">
                     <h1 class="mt-2">Open Daily:</h1>

@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->string('author');
             $table->integer('year');
-            $table->string('synopsis');
+            $table->text('synopsis');
             $table->string('image');
             $table->timestamps();
         });

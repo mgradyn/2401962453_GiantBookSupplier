@@ -44,6 +44,9 @@ class HomeController extends Controller
         $email = "happybookstore@happy.com";
 
         return view('home.contact', ['store_address' => $store_address, 
+        'store_komplek' => $store_komplek,
+        'store_town' => $store_town,
+        'store_country' => $store_country,
         'schedule_time' => $schedule_time, 'phone' => $phone, 
         'email' => $email]);
     }
