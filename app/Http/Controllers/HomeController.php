@@ -10,8 +10,9 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $page_name = "Book List";
         $books = Book::all();
-        return view('home.index', ['books' => $books]);
+        return view('home.index', ['books' => $books, 'page_name' => $page_name]);
     }
 
     public function category($name)
@@ -23,8 +24,14 @@ class HomeController extends Controller
 
             if (count($category_books))
             {
-                return view('home.category', ['category_name' => $name,
-                'category_books' => $category_books]);
+                $book_ids = [];
+                foreach($category_books as $category_book)
+                {
+                    $book_ids[] = $category_book->book()->first()->id;
+                }
+                $books = Book::whereIn('id', $book_ids)->get();
+                return view('home.index', ['page_name' => $name,
+                'books' => $books]);
             }
         }
         return redirect(route('home'));
@@ -32,9 +39,10 @@ class HomeController extends Controller
 
     public function viewBook($id)
     {
+        $page_name = "Detail";
         $book = Book::find($id);
         if ($book){
-            return view('home.viewBook', ['book' => $book]);
+            return view('home.index', ['book' => $book, 'page_name' => $page_name]);
         }
 
         return redirect(route('home'));
