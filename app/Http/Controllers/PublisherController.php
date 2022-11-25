@@ -17,9 +17,9 @@ class PublisherController extends Controller
     public function detail($id)
     {
         $publisher = Publisher::find($id);
-        $books = $publisher->books()->get();
         if ($publisher)
         {
+            $books = $publisher->books()->get();
             return view('publisher.detail', ['publisher' => $publisher, 'books' => $books]);
         }
         return redirect(route('publisher'));
