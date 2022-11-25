@@ -1,5 +1,5 @@
 <div class="card m-2" style="width: 18rem;">
-    <img src="{{ asset('storage/images/book/' . $book->image) }}" class="card-img-top" alt="book image">
+    <img src="{{ asset('storage/images/book/' . $book->image) }}" class="card-img-top p-2" alt="book image">
     <div class="card-body">
         <h5 class="card-title">{{ $book->title }}</h5>
         <p class="card-text mb-0">by</p>

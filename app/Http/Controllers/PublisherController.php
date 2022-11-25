@@ -9,8 +9,9 @@ class PublisherController extends Controller
 {
     public function index()
     {
+        $page_name = "Publisher";
         $publishers = Publisher::all();
-        return view('publisher.index', ['publishers' => $publishers]);
+        return view('publisher.index', ['publishers' => $publishers, 'pagename' => $page_name]);
     }
 
     public function detail($id)

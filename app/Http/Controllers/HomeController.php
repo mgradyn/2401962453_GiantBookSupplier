@@ -12,7 +12,7 @@ class HomeController extends Controller
     {
         $page_name = "Book List";
         $books = Book::all();
-        return view('home.index', ['books' => $books, 'page_name' => $page_name]);
+        return view('home.index', ['books' => $books, 'pagename' => $page_name]);
     }
 
     public function category($name)
@@ -30,7 +30,7 @@ class HomeController extends Controller
                     $book_ids[] = $category_book->book()->first()->id;
                 }
                 $books = Book::whereIn('id', $book_ids)->get();
-                return view('home.index', ['page_name' => $name,
+                return view('home.index', ['pagename' => $name,
                 'books' => $books]);
             }
         }
@@ -39,10 +39,10 @@ class HomeController extends Controller
 
     public function viewBook($id)
     {
-        $page_name = "Detail";
+        $page_name = "Book Detail";
         $book = Book::find($id);
         if ($book){
-            return view('home.index', ['book' => $book, 'page_name' => $page_name]);
+            return view('home.index', ['book' => $book, 'pagename' => $page_name]);
         }
 
         return redirect(route('home'));
@@ -58,11 +58,14 @@ class HomeController extends Controller
         $phone = "021-08899776655";
         $email = "happybookstore@happy.com";
 
+        $page_name = "Contact";
+
         return view('home.contact', ['store_address' => $store_address, 
         'store_komplek' => $store_komplek,
         'store_town' => $store_town,
         'store_country' => $store_country,
         'schedule_time' => $schedule_time, 'phone' => $phone, 
-        'email' => $email]);
+        'email' => $email, 
+        'pagename' => $page_name]);
     }
 }

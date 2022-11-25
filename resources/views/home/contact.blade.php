@@ -4,26 +4,38 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md">
-                <div class="bg-secondary p-1">
-                    <h1 class="text-light">Contact</h1>
-                </div>
-                <div class="store-address mt-2">
-                    <h1 class="mt-2">Store address</h1>
-                    <p class="lead">{{ $store_address }}</p>
-                    <p class="lead">{{ $store_komplek }}</p>
-                    <p class="lead">{{ $store_town }}</p>
-                    <p class="lead">{{ $store_country }}</p>
-                </div>
-                <div class="schedule mt-2">
-                    <h1 class="mt-2">Open Daily:</h1>
-                    <p class="lead">{{ $schedule_time }}</p>
-                </div>
-                <div class="contact mt-2">
-                    <h1 class="mt-2">Contact</h1>
-                    <p class="lead">{{ 'Phone : ' . $phone }}</p>
-                    <p class="lead">{{ 'Email : ' . $email }}</p>
-                </div>
+                <x-page-name :pagename="$pagename" />
+                <div class="body p-3 mb-5 row justify-content-center">
+                    <div class="card">
+                        <img src="{{ url('/images/book_store.jpeg') }}" class="card-img-top p-3"
+                            style="height: 30rem; object-fit: cover;" alt="...">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card-body">
+                                    <h1 class="card-title mb-4">Store address</h1>
+                                    <p class="card-text h5">{{ $store_address }}</p>
+                                    <p class="card-text h5 ">{{ $store_komplek }}</p>
+                                    <p class="card-text h5">{{ $store_town }}</p>
+                                    <p class="card-text h5">{{ $store_country }}</p>
 
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-body">
+                                    <h1 class="card-title mb-4">Open Daily:</h1>
+                                    <p class="card-text h5">{{ $schedule_time }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card-body">
+                                    <h1 class="card-title mb-4">Contact</h1>
+                                    <p class="card-text h5">{{ 'Phone : ' . $phone }}</p>
+                                    <p class="card-text h5">{{ 'Email : ' . $email }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

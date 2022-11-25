@@ -4,9 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md">
-                <div class="bg-secondary p-1">
-                    <h1 class="text-light">{{ $page_name }}</h1>
-                </div>
+                <x-page-name :pagename="$pagename" />
                 @if (Request::is('/') || Request::is('category/*'))
                     <div class="row p-4 mb-5 justify-content-center">
                         @foreach ($books as $book)
@@ -14,12 +12,12 @@
                         @endforeach
                     </div>
                 @elseif (Request::is('book/*'))
-                    <div class="body mb-5 row justify-content-center">
+                    <div class="body p-3 mb-5 row justify-content-center">
                         <div class="card m-2 mb-5" style="width: 90%;">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <img src="{{ asset('storage/images/book/' . $book->image) }}"
-                                        class="img-fluid rounded-start" alt="book image">
+                                    <img src="{{ asset('storage/images/book/' . $book->image) }}" class="img-fluid p-4"
+                                        alt="book image">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">

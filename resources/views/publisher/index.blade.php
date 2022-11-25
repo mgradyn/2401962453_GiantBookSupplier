@@ -4,10 +4,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md">
-                <div class="bg-secondary p-1">
-                    <h1 class="text-light">Publisher</h1>
-                </div>
-                <div class="row p-4 mb-5 justify-content-center">
+                <x-page-name :pagename="$pagename" />
+                <div class="body p-3 mb-5 row justify-content-center">
                     @foreach ($publishers as $publisher)
                         <div class="card m-2" style="width: 18rem;">
                             <img src="{{ asset('storage/images/publisher/' . $publisher->image) }}" class="card-img-top"
